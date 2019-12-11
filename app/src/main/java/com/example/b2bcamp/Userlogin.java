@@ -68,6 +68,13 @@ public class Userlogin extends AppCompatActivity implements DataInterface {
                 startActivity(i);
             }
         });
+        txt_forgot_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(Userlogin.this,ForgotpasswordActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     @Override
