@@ -2,6 +2,7 @@ package com.example.b2bcamp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,11 +37,15 @@ public class Resetactivity extends AppCompatActivity {
                     edt_repassword.setError("Reenter valid password");
                     return;
                 }
+                if (edt_password.getText().toString().equals(edt_repassword.getText().toString())) {
+                    edt_repassword.setError("Both password not match");
+                    return;
+                }
+                Intent i=new Intent(Resetactivity.this,Userlogin.class);
+                startActivity(i);
 
-                String url = Constants.Webserive_Url + "registration.php";
 
-                HashMap<String, String> params = new HashMap<>();
-                params.put("password", edt_password.getText().toString());
+
             }
 
             });
