@@ -60,5 +60,16 @@ public class Commonfunctions {
             return false;
         }
     }
+    public static boolean checkVerificationcode(String s)
+    {
+        if (s!=null && !s.equals("null") && s.length()==6)
+        {
+            return true;
+
+        }
+        else {
+            return false;
+        }
+    }
 
 }
