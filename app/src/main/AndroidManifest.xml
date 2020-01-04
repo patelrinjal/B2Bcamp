@@ -12,11 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-<<<<<<< Updated upstream
-        <activity android:name=".Customerhomepageactivity"></activity>
-=======
-        <activity android:name=".Addproductactivity"></activity>
->>>>>>> Stashed changes
+        <activity
+            android:name=".Customerhomepage"
+            android:label="@string/title_activity_customerhomepage"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Customerhomepageactivity" />
+        <activity android:name=".Addproductactivity" />
         <activity android:name=".Resetactivity" />
         <activity android:name=".Verifyactivity" />
         <activity android:name=".ForgotpasswordActivity" />
