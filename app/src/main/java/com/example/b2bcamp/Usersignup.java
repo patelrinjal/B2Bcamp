@@ -102,4 +102,10 @@ public class Usersignup extends AppCompatActivity implements DataInterface {
 
 
     }
+
+    public void ClickonLogin(View view) {
+
+        finish();
+
+    }
 }
