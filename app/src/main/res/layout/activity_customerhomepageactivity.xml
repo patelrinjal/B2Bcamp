@@ -57,10 +57,10 @@
 
                 <ImageView
                     android:id="@+id/img_2"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="50dp"
+                    android:layout_height="25dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_launcher_background" />
+                    android:src="@drawable/electronics" />
 
                 <TextView
                     android:id="@+id/txt_1"
@@ -70,7 +70,7 @@
                     android:gravity="center"
                     android:textColor="@android:color/black"
                     android:textSize="16dp"
-                    android:text="TextView" />
+                    android:text="Electronics" />
 
 
             </LinearLayout>
@@ -97,7 +97,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_launcher_background" />
+                android:src="@drawable/cloths" />
 
             <TextView
                 android:id="@+id/txt_2"
@@ -107,7 +107,7 @@
                 android:gravity="center"
                 android:textColor="@android:color/black"
                 android:textSize="16dp"
-                android:text="TextView" />
+                android:text="Cloths" />
 
         </LinearLayout>
 
@@ -144,7 +144,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_launcher_background" />
+                    android:src="@drawable/jwellery" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -153,7 +153,7 @@
                     android:gravity="center"
                     android:textColor="@android:color/black"
                     android:textSize="16dp"
-                    android:text="TextView" />
+                    android:text="Jwellery" />
 
 
             </LinearLayout>
@@ -179,7 +179,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_launcher_background" />
+                    android:src="@drawable/footwear" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -188,7 +188,7 @@
                     android:gravity="center"
                     android:textColor="@android:color/black"
                     android:textSize="16dp"
-                    android:text="TextView" />
+                    android:text="Footwear" />
 
             </LinearLayout>
 

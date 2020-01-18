@@ -4,13 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".Usersignup"
+    android:layout_height="match_parent"
+    tools:context=".Sellersignup"
     android:orientation="vertical"
     android:padding="24dp"
     android:gravity="center">
+
+    <EditText
+        android:id="@+id/edt_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Seller id"
+        android:paddingBottom="20dp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"/>
 
     <EditText
         android:id="@+id/edt_name"
@@ -20,7 +32,19 @@
         android:inputType="textPersonName"
         android:hint="Name"
         android:paddingBottom="20dp"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:layout_marginTop="20dp"/>
+    <EditText
+        android:id="@+id/edt_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="phone"
+        android:hint="Contact no"
+        android:paddingBottom="20dp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"/>
+
 
     <EditText
         android:id="@+id/edt_email"
@@ -33,38 +57,9 @@
         android:gravity="center"
         android:layout_marginTop="20dp"/>
 
-    <EditText
-        android:id="@+id/edt_contact"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="phone"
-        android:hint="Contact no"
-        android:paddingBottom="20dp"
-        android:gravity="center"
-        android:layout_marginTop="20dp"/>
 
-    <EditText
-        android:id="@+id/edt_city"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="City Name"
-        android:paddingBottom="20dp"
-        android:gravity="center"
-        android:layout_marginTop="20dp"/>
 
-    <EditText
-        android:id="@+id/edt_state"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="State Name"
-        android:paddingBottom="20dp"
-        android:gravity="center"
-        android:layout_marginTop="20dp"/>
+
 
     <EditText
         android:id="@+id/edt_password"
@@ -104,7 +99,9 @@
         android:gravity="center"
         android:layout_marginTop="20dp"
         android:textColor="@android:color/black"
-        android:onClick="ClickonLogin"/>
-</LinearLayout>
+        android:onClick="ClickonLogin">
 
-</ScrollView>
+    </TextView>
+
+</LinearLayout>
+    </ScrollView>
