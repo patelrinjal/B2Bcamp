@@ -34,7 +34,8 @@
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
         android:textSize="17sp"
-        android:background="@drawable/edittxt_shape"/>
+        android:background="@drawable/edittxt_shape"
+        />
 
     <EditText
         android:id="@+id/edt_password"
@@ -58,7 +59,8 @@
         android:text="Forgot password"
         android:gravity="right"
         android:layout_marginTop="20dp"
-        android:textColor="@android:color/white"/>
+        android:textColor="@android:color/white"
+        android:textSize="15dp"/>
 
     <Button
         android:id="@+id/btn_login"
@@ -79,6 +81,7 @@
         android:gravity="center"
         android:layout_marginTop="20dp"
         android:textColor="@android:color/white"
+        android:textSize="15dp"
         />
 
 </LinearLayout>
