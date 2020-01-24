@@ -76,18 +76,18 @@ public class Sellersignup extends AppCompatActivity implements DataInterface {
                     return;
                 }
 
-                String url = Constants.Webserive_Url + "registration.php";
+                String url = Constants.Webserive_Url + "seller_reg.php";
 
                 HashMap<String,String> params = new HashMap<>();
                 params.put("seller_id",edt_id.getText().toString());
-                params.put("user_name",edt_name.getText().toString());
+                params.put("seller_name",edt_name.getText().toString());
                 params.put("contact_num",edt_contact.getText().toString());
                 params.put("email",edt_email.getText().toString());
                 params.put("password",edt_password.getText().toString());
 
 
 
-                volley.CallVolley(url,params,"registration");
+                volley.CallVolley(url,params,"seller_reg");
             }
         });
     }
