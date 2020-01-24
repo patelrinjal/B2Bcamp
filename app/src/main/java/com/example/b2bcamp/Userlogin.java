@@ -51,6 +51,9 @@ public class Userlogin extends AppCompatActivity implements DataInterface {
                     return;
                 }
 
+                Intent i=new Intent(Userlogin.this,Customerhomepage.class);
+                startActivity(i);
+
                 String url = Constants.Webserive_Url + "login.php";
 
                 HashMap<String,String> params = new HashMap<>();
@@ -81,7 +84,6 @@ public class Userlogin extends AppCompatActivity implements DataInterface {
     public void getData(JSONObject jsonObject, String tag) {
         Toast.makeText(this,jsonObject.toString(),Toast.LENGTH_SHORT).show();
 
-        Intent i=new Intent(Userlogin.this,Customerhomepage.class);
-        startActivity(i);
+
     }
 }
