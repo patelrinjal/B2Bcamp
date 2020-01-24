@@ -88,6 +88,8 @@ public class Sellersignup extends AppCompatActivity implements DataInterface {
 
 
                 volley.CallVolley(url,params,"registration");
+
+                Toast.makeText(Sellersignup.this, "Hello World...", Toast.LENGTH_SHORT).show();
             }
         });
     }
