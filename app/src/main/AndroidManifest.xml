@@ -12,21 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Sellersignup">
-
-    </activity>
-        <activity android:name=".Sellerlogin">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".Sellerhomepage"
-            android:label="@string/title_activity_customerhomepage"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Sellerlogin" />
         <activity
             android:name=".Customerhomepage"
             android:label="@string/title_activity_customerhomepage"
@@ -38,7 +24,11 @@
         <activity android:name=".ForgotpasswordActivity" />
         <activity android:name=".Usersignup" />
         <activity android:name=".Userlogin">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
     </application>

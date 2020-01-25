@@ -11,94 +11,124 @@
     tools:context=".Sellersignup"
     android:orientation="vertical"
     android:padding="24dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="#3A1C26">
+
+    <TextView
+        android:id="@+id/txt_signin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SIGN UP"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:paddingBottom="50dp"
+        android:textColor="@android:color/white"
+        android:textSize="30dp"
+        android:textStyle="bold"/>
 
     <EditText
         android:id="@+id/edt_id"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Seller id"
-        android:paddingBottom="20dp"
+        android:hint="Seller Id"
         android:gravity="center"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="17sp"
+        android:background="@drawable/edittxt_shape"/>
 
     <EditText
         android:id="@+id/edt_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Name"
-        android:paddingBottom="20dp"
         android:gravity="center"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="17sp"
+        android:background="@drawable/edittxt_shape"/>
     <EditText
         android:id="@+id/edt_contact"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:ems="10"
         android:inputType="phone"
-        android:hint="Contact no"
-        android:paddingBottom="20dp"
+        android:hint="Contact No"
         android:gravity="center"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="17sp"
+        android:background="@drawable/edittxt_shape"/>
 
 
     <EditText
         android:id="@+id/edt_email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:ems="10"
         android:inputType="textEmailAddress"
         android:hint="Email"
-        android:paddingBottom="20dp"
         android:gravity="center"
-        android:layout_marginTop="20dp"/>
-
-
-
-
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="17sp"
+        android:background="@drawable/edittxt_shape"/>
 
     <EditText
         android:id="@+id/edt_password"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:ems="10"
         android:inputType="textPassword"
         android:hint="Password"
-        android:paddingBottom="20dp"
         android:gravity="center"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="17sp"
+        android:background="@drawable/edittxt_shape"/>
 
     <EditText
         android:id="@+id/edt_repassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:ems="10"
         android:inputType="textPassword"
         android:hint="Re enter pasword"
-        android:paddingBottom="20dp"
         android:gravity="center"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="17sp"
+        android:background="@drawable/edittxt_shape"/>
 
     <Button
         android:id="@+id/btn_signup"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sign up"
+        android:layout_height="60dp"
+        android:text="SIGN UP"
         android:layout_marginTop="24dp"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:background="@drawable/button_shape" />
 
     <TextView
         android:id="@+id/txt_login"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:text="Already have an account? Login"
         android:gravity="center"
         android:layout_marginTop="20dp"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:onClick="ClickonLogin">
 
     </TextView>
