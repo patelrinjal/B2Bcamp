@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="splash"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#3C1C27">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_above="@id/bottom_laout"
+        android:gravity="center">
+    <TextView
+        android:id="@+id/txt_signin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MYSHOP"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:textSize="50dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/txt_Fashion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Smile Are Always In Fashion"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"
+        />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/bottom_laout"
+        android:layout_alignParentBottom="true">
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="SIGN IN"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:background="@drawable/button_shape"
+        android:layout_marginTop="24dp"/>
+    <TextView
+        android:id="@+id/txt_or"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="or"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"/>
+    <Button
+        android:id="@+id/edt_signup"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="SIGN UP"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="32dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="17sp"
+        android:background="@drawable/edittxt_shape"/>
+    </LinearLayout>
+</RelativeLayout>
