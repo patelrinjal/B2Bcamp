@@ -32,8 +32,10 @@
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
         android:textSize="17sp"
+        android:paddingRight="32dp"
         android:background="@drawable/edittxt_shape"
-        />
+        android:drawableLeft="@drawable/ic_action_phone"
+        android:paddingLeft="25dp"/>
 
     <EditText
         android:id="@+id/edt_password"
@@ -47,7 +49,10 @@
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
         android:textSize="17sp"
-        android:background="@drawable/edittxt_shape"/>
+        android:paddingRight="32dp"
+        android:background="@drawable/edittxt_shape"
+        android:drawableLeft="@drawable/ic_action_password"
+        android:paddingLeft="25dp"/>
 
 
     <TextView
