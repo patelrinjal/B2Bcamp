@@ -19,7 +19,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 
 public class Sellersignup extends AppCompatActivity implements DataInterface {
-    EditText edt_id,edt_name,edt_contact,edt_email,edt_password,edt_repassword;
+    EditText edt_name,edt_contact,edt_email,edt_password,edt_repassword;
     Button btn_signup;
     TextView txt_login;
     Webservice_Volley volley=null;
@@ -29,7 +29,6 @@ public class Sellersignup extends AppCompatActivity implements DataInterface {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sellersignup);
-        edt_id=(EditText)findViewById(R.id.edt_id);
         edt_name=(EditText)findViewById(R.id.edt_name);
         edt_contact=(EditText)findViewById(R.id.edt_contact);
         edt_email=(EditText)findViewById(R.id.edt_email);
@@ -42,11 +41,7 @@ public class Sellersignup extends AppCompatActivity implements DataInterface {
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!Commonfunctions.checkstring(edt_id.getText().toString()))
-                {
-                    edt_id.setError("Please enter your id");
-                    return;
-                }
+
 
                 if (!Commonfunctions.checkstring(edt_name.getText().toString()))
                 {
@@ -79,7 +74,6 @@ public class Sellersignup extends AppCompatActivity implements DataInterface {
                 String url = Constants.Webserive_Url + "registration.php";
 
                 HashMap<String,String> params = new HashMap<>();
-                params.put("seller_id",edt_id.getText().toString());
                 params.put("user_name",edt_name.getText().toString());
                 params.put("contact_num",edt_contact.getText().toString());
                 params.put("email",edt_email.getText().toString());

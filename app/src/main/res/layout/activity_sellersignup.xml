@@ -26,19 +26,7 @@
         android:textSize="30dp"
         android:textStyle="bold"/>
 
-    <EditText
-        android:id="@+id/edt_id"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Seller Id"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
-        android:textSize="17sp"
-        android:background="@drawable/edittxt_shape"/>
+
 
     <EditText
         android:id="@+id/edt_name"
@@ -51,8 +39,11 @@
         android:layout_marginTop="20dp"
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
-        android:textSize="17sp"
-        android:background="@drawable/edittxt_shape"/>
+        android:textSize="18sp"
+        android:paddingRight="32dp"
+        android:background="@drawable/edittxt_shape"
+        android:drawableLeft="@drawable/ic_action_user"
+        android:paddingLeft="25dp"/>
     <EditText
         android:id="@+id/edt_contact"
         android:layout_width="match_parent"
@@ -65,7 +56,10 @@
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
         android:textSize="17sp"
-        android:background="@drawable/edittxt_shape"/>
+        android:paddingRight="32dp"
+        android:background="@drawable/edittxt_shape"
+        android:drawableLeft="@drawable/ic_action_phone"
+        android:paddingLeft="25dp"/>
 
 
     <EditText
@@ -80,7 +74,10 @@
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
         android:textSize="17sp"
-        android:background="@drawable/edittxt_shape"/>
+        android:paddingRight="32dp"
+        android:background="@drawable/edittxt_shape"
+        android:drawableLeft="@drawable/ic_action_email"
+        android:paddingLeft="25dp"/>
 
     <EditText
         android:id="@+id/edt_password"
@@ -94,7 +91,10 @@
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
         android:textSize="17sp"
-        android:background="@drawable/edittxt_shape"/>
+        android:paddingRight="32dp"
+        android:background="@drawable/edittxt_shape"
+        android:drawableLeft="@drawable/ic_action_password"
+        android:paddingLeft="25dp"/>
 
     <EditText
         android:id="@+id/edt_repassword"
@@ -108,7 +108,10 @@
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
         android:textSize="17sp"
-        android:background="@drawable/edittxt_shape"/>
+        android:paddingRight="32dp"
+        android:background="@drawable/edittxt_shape"
+        android:drawableLeft="@drawable/ic_action_password"
+        android:paddingLeft="25dp"/>
 
     <Button
         android:id="@+id/btn_signup"
@@ -119,6 +122,7 @@
         android:gravity="center"
         android:textColor="@android:color/white"
         android:textSize="18sp"
+        android:paddingRight="32dp"
         android:background="@drawable/button_shape" />
 
     <TextView
