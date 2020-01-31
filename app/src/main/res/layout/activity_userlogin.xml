@@ -54,7 +54,7 @@
         android:paddingRight="32dp"
         android:background="@drawable/edittxt_shape"
         android:drawableLeft="@drawable/ic_action_password"
-        android:paddingLeft="25dp" />
+        android:paddingLeft="25dp"/>
 
     <TextView
         android:id="@+id/txt_forgot_password"

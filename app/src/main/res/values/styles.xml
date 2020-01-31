@@ -9,6 +9,9 @@
     </style>
 
     <style name="AppTheme.NoActionBar">
+        <item name="colorPrimary">#7F0837</item>
+        <item name="colorPrimaryDark">#7F0837</item>
+        <item name="colorAccent">#7F0837</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>

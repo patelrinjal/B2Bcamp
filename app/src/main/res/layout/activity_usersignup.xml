@@ -25,21 +25,31 @@
             android:textSize="30dp"
             android:textStyle="bold"/>
 
+        <Spinner
+            android:id="@+id/spn_1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="32dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:textSize="17sp" />
+
         <EditText
             android:id="@+id/edt_name"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Name"
-            android:gravity="center"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:textSize="17sp"
-            android:paddingRight="32dp"
             android:background="@drawable/edittxt_shape"
             android:drawableLeft="@drawable/ic_action_user"
-            android:paddingLeft="25dp"/>
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:paddingLeft="25dp"
+            android:paddingRight="32dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:textSize="17sp" />
 
         <EditText
             android:id="@+id/edt_email"

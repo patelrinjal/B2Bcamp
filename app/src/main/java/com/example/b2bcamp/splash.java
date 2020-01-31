@@ -15,12 +15,12 @@ public class splash extends AppCompatActivity {
     }
 
     public void ClickonLogin(View view) {
-        Intent i=new Intent(splash.this,Userlogin.class);
+        Intent i=new Intent(splash.this,Userselection.class);
         startActivity(i);
     }
 
     public void ClickonSignup(View view) {
-        Intent i=new Intent(splash.this,Usersignup.class);
+        Intent i=new Intent(splash.this,Userselection.class);
         startActivity(i);}
 
 }
