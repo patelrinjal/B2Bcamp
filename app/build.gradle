@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.example.b2bcamp"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -33,4 +33,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'com.android.volley:volley:1.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.chaos.view:pinview:1.4.3'
 }
