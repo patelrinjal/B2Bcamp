@@ -12,28 +12,38 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".splash">
+        <activity android:name=".Userselection"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".splash"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Sellerlogin" />
+        <activity android:name=".Sellerlogin"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".Customerhomepage"
             android:label="@string/title_activity_customerhomepage"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Customerhomepageactivity" />
-        <activity android:name=".Addproductactivity" />
-        <activity android:name=".Resetactivity" />
-        <activity android:name=".Verifyactivity" />
-        <activity android:name=".ForgotpasswordActivity" />
-        <activity android:name=".Usersignup" />
-        <activity android:name=".Userlogin">
-
-        </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".Customerhomepageactivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Addproductactivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Resetactivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Verifyactivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ForgotpasswordActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Usersignup"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Userlogin"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

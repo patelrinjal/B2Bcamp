@@ -51,13 +51,13 @@ public class Sellerlogin extends AppCompatActivity implements DataInterface {
                     return;
                 }
 
-                String url = Constants.Webserive_Url + "login.php";
+                String url = Constants.Webserive_Url + "seller_login.php";
 
                 HashMap<String,String> params = new HashMap<>();
                 params.put("contact_num",edt_contact.getText().toString());
                 params.put("password",edt_password.getText().toString());
 
-                volley.CallVolley(url,params,"login");
+                volley.CallVolley(url,params,"seller_login");
 
             }
         });
