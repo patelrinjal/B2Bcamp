@@ -6,7 +6,7 @@ package com.example.b2bcamp.Utility;
 public class Constants {
 
 
-   public static final String Webserive_Url="http://192.168.43.230/B2Bcamp/API/";
+   public static final String Webserive_Url="http://192.168.43.232/b2b/api/";
 
 
    public static final String IMAGE_Url="http://192.168.1.3/Nutrition_Diet_App/Uploads/";
