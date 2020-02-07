@@ -23,12 +23,16 @@ public class ForgotpasswordActivity extends AppCompatActivity implements DataInt
     Button btn_submit;
     Webservice_Volley volley=null;
 
+    String type = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgotpassword);
         edt_contact = (EditText) findViewById(R.id.edt_contact);
         btn_submit = (Button) findViewById(R.id.btn_submit);
+
+        type = getIntent().getStringExtra("type");
 
         volley = new Webservice_Volley(this,this);
         btn_submit.setOnClickListener(new View.OnClickListener() {
@@ -38,21 +42,60 @@ public class ForgotpasswordActivity extends AppCompatActivity implements DataInt
                     edt_contact.setError("Please enter 10 digit contact no");
                     return;
                 }
-                String url = Constants.Webserive_Url + "user_forgotpassword.php";
 
-                HashMap<String, String> params = new HashMap<>();
-                params.put("contact_num", edt_contact.getText().toString());
-                volley.CallVolley(url,params,"user_forgotpassword");
+                if (type.equalsIgnoreCase("seller")) {
+
+                    String url = Constants.Webserive_Url + "seller_forgotpassword.php";
+
+                    HashMap<String, String> params = new HashMap<>();
+                    params.put("seller_contactno", edt_contact.getText().toString());
+                    volley.CallVolley(url, params, "seller_forgotpassword");
+
+                }
+                else {
+
+
+                    String url = Constants.Webserive_Url + "user_forgotpassword.php";
+
+                    HashMap<String, String> params = new HashMap<>();
+                    params.put("contact_num", edt_contact.getText().toString());
+                    volley.CallVolley(url, params, "user_forgotpassword");
+                }
             }
         });
     }
 
     @Override
     public void getData(JSONObject jsonObject, String tag) {
-        Toast.makeText(this,jsonObject.toString(),Toast.LENGTH_SHORT).show();
 
-        Intent i=new Intent(ForgotpasswordActivity.this,Resetactivity.class);
-        startActivity(i);
+        try {
+
+            Toast.makeText(this,jsonObject.getString("message"),Toast.LENGTH_LONG).show();
+
+            if (jsonObject.getString("response").equals("1")) {
+
+                String code = jsonObject.getString("otp");
+                String id = jsonObject.getString("id");
+
+                Toast.makeText(this, "otp:"+ code, Toast.LENGTH_LONG).show();
+
+
+                Intent i = new Intent(ForgotpasswordActivity.this,Verifyactivity.class);
+                i.putExtra("otp",code);
+                i.putExtra("id",id);
+                i.putExtra("type",type);
+                startActivity(i);
+
+            }
+
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
     }
     public void ClickonLogin(View view) {
 

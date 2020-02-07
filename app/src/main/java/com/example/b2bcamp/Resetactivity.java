@@ -22,13 +22,18 @@ public class Resetactivity extends AppCompatActivity implements DataInterface {
     EditText edt_password,edt_repassword;
     Button btn_reset;
     Webservice_Volley volley=null;
-    String user_id="8";
+    String user_id="0",type;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resetactivity);
+
+        user_id = getIntent().getStringExtra("id");
+        type = getIntent().getStringExtra("type");
+
+
         edt_password=(EditText)findViewById(R.id.edt_password);
         edt_repassword=(EditText)findViewById(R.id.edt_repassword);
         btn_reset = (Button) findViewById(R.id.btn_reset);
@@ -50,12 +55,26 @@ public class Resetactivity extends AppCompatActivity implements DataInterface {
                     return;
                 }
 
-                String url = Constants.Webserive_Url + "user_resetpassword.php";
+                if (type.equalsIgnoreCase("seller")) {
 
-                HashMap<String, String> params = new HashMap<>();
-                params.put("user_id",user_id);
-                params.put("password", edt_password.getText().toString());
-                volley.CallVolley(url,params,"user_resetpassword");
+                    String url = Constants.Webserive_Url + "seller_resetpassword.php";
+
+                    HashMap<String, String> params = new HashMap<>();
+                    params.put("seller_id", user_id);
+                    params.put("seller_password", edt_password.getText().toString());
+                    volley.CallVolley(url, params, "seller_resetpassword");
+
+                }
+                else {
+
+                    String url = Constants.Webserive_Url + "user_resetpassword.php";
+
+                    HashMap<String, String> params = new HashMap<>();
+                    params.put("user_id", user_id);
+                    params.put("password", edt_password.getText().toString());
+                    volley.CallVolley(url, params, "user_resetpassword");
+
+                }
 
 
 
@@ -66,7 +85,41 @@ public class Resetactivity extends AppCompatActivity implements DataInterface {
 
     @Override
     public void getData(JSONObject jsonObject, String tag) {
-        Toast.makeText(this,jsonObject.toString(),Toast.LENGTH_SHORT).show();
+
+
+        try {
+
+            Toast.makeText(this,jsonObject.getString("message"),Toast.LENGTH_LONG).show();
+
+            if (jsonObject.getString("response").equals("1")) {
+
+                if (type.equalsIgnoreCase("seller")) {
+
+                    Intent i = new Intent(Resetactivity.this,Sellerlogin.class);
+                    startActivity(i);
+
+                    finishAffinity();
+
+                }
+                else {
+
+                    Intent i = new Intent(Resetactivity.this,Userlogin.class);
+                    startActivity(i);
+
+                    finishAffinity();
+
+                }
+
+
+
+            }
+
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
     public void ClickonLogin(View view) {
 
