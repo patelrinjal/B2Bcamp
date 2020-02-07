@@ -14,11 +14,6 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".Userselection"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity android:name=".splash"
@@ -33,7 +28,14 @@
         <activity android:name=".Customerhomepageactivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Addproductactivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
         <activity android:name=".Resetactivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Verifyactivity"
