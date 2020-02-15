@@ -15,7 +15,9 @@ import com.example.b2bcamp.Utility.Commonfunctions;
 import com.example.b2bcamp.Utility.Constants;
 import com.example.b2bcamp.Utility.DataInterface;
 import com.example.b2bcamp.Utility.Webservice_Volley;
+import com.google.android.material.snackbar.Snackbar;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -30,7 +32,9 @@ public class Addproductactivity extends AppCompatActivity implements DataInterfa
     Webservice_Volley volley = null;
 
     ArrayList<String> list=new ArrayList<>();
+    ArrayList<String> listID=new ArrayList<>();
 
+    ArrayAdapter<String> da;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,21 +48,22 @@ public class Addproductactivity extends AppCompatActivity implements DataInterfa
         img2 = (ImageView) findViewById(R.id.img2);
         img3 = (ImageView) findViewById(R.id.img3);
 
+        list.add("Select Category");
+        listID.add("0");
 
-        list.add("Electronics");
-        list.add("Footwear");
-        list.add("Jewellery");
-        list.add("Cloths");
-        list.add("Cosmetics");
-        list.add("Watches");
 
-        ArrayAdapter<String> da=new ArrayAdapter<>(Addproductactivity.this,android.R.layout.simple_spinner_dropdown_item,list);
+        da=new ArrayAdapter<>(Addproductactivity.this,android.R.layout.simple_spinner_dropdown_item,list);
         spn_1.setAdapter(da);
 
 
 
 
         volley = new Webservice_Volley(this, this);
+        String url = Constants.Webserive_Url + "getcategorylist.php";
+
+        HashMap<String, String> params = new HashMap<>();
+        volley.CallVolley(url, params, "getcategorylist");
+
         btn_submit = (Button) findViewById(R.id.btn_submit);
         btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,13 +82,19 @@ public class Addproductactivity extends AppCompatActivity implements DataInterfa
                     edt_description.setError("Please enter product decription");
                     return;
                 }
+                if (spn_1.getSelectedItemPosition()<=0){
+                    Snackbar.make(v,"Please select category",Snackbar.LENGTH_LONG).show();;
+                    return;
+                }
 
                 String url = Constants.Webserive_Url + "product.php";
 
                 HashMap<String, String> params = new HashMap<>();
 
-                params.put("category_id", String.valueOf(spn_1.getSelectedItemPosition()+1));
+                params.put("category_id", listID.get(spn_1.getSelectedItemPosition()+1));
+
                 params.put("product_name", edt_name.getText().toString());
+                params.put("seller_id","1");
                 params.put("p_img1","");
                 params.put("p_img2","");
                 params.put("p_img3","");
@@ -96,7 +107,32 @@ public class Addproductactivity extends AppCompatActivity implements DataInterfa
 
     @Override
     public void getData(JSONObject jsonObject, String tag) {
-        Toast.makeText(this, jsonObject.toString(), Toast.LENGTH_SHORT).show();
+        try {
+
+            Toast.makeText(this, jsonObject.toString(), Toast.LENGTH_SHORT).show();
+
+            if (tag.equalsIgnoreCase("getcategorylist")){
+                JSONArray arr=jsonObject.getJSONArray("result");
+                if (arr!=null){
+                    if(arr.length()>0){
+                        for (int i=0;i<arr.length();i++){
+                            list.add(arr.getJSONObject(i).getString("category_name"));
+                            listID.add(arr.getJSONObject(i).getString("category_id"));
+
+                        }
+
+                        if (da != null)
+                            da.notifyDataSetChanged();
+
+
+
+                    }
+                }
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
 
 
     }
