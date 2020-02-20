@@ -72,6 +72,7 @@ public class Sellerlogin extends AppCompatActivity implements DataInterface {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(Sellerlogin.this,ForgotpasswordActivity.class);
+                i.putExtra("type","seller");
                 startActivity(i);
             }
         });

@@ -2,6 +2,7 @@ package com.example.b2bcamp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,8 @@ public class Verifyactivity extends AppCompatActivity {
     PinView Pin_View;
     Button btn_verify;
 
+    String code , id , type;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,12 @@ public class Verifyactivity extends AppCompatActivity {
         setContentView(R.layout.activity_verifyactivity);
         Pin_View=(PinView) findViewById(R.id.Pin_View);
         btn_verify=(Button) findViewById(R.id.btn_verify);
+
+        code = getIntent().getStringExtra("otp");
+        id = getIntent().getStringExtra("id");
+        type = getIntent().getStringExtra("type");
+
+
         btn_verify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,10 +42,20 @@ public class Verifyactivity extends AppCompatActivity {
                     Pin_View.setError("Please enter your name");
                     return;
                 }
-                String url = Constants.Webserive_Url + "registration.php";
 
-                HashMap<String,String> params = new HashMap<>();
-                params.put("pin number",Pin_View.getText().toString());
+                if (code.equalsIgnoreCase(Pin_View.getText().toString())) {
+
+                    Intent i = new Intent(Verifyactivity.this,Resetactivity.class);
+                    i.putExtra("id",id);
+                    i.putExtra("type",type);
+                    startActivity(i);
+
+                }
+                else {
+                    Toast.makeText(Verifyactivity.this, "Invalid OTP. Please Enter again.", Toast.LENGTH_LONG).show();
+                }
+
+
 
 
 

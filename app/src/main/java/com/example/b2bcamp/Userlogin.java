@@ -75,6 +75,7 @@ public class Userlogin extends AppCompatActivity implements DataInterface {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(Userlogin.this,ForgotpasswordActivity.class);
+                i.putExtra("type","user");
                 startActivity(i);
             }
         });
