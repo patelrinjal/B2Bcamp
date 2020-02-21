@@ -1,5 +1,6 @@
 package com.example.b2bcamp.ui.tools;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,12 +17,14 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.b2bcamp.Addproductactivity;
 import com.example.b2bcamp.R;
 import com.example.b2bcamp.Utility.Constants;
 import com.example.b2bcamp.Utility.DataInterface;
 import com.example.b2bcamp.Utility.Webservice_Volley;
+import com.example.b2bcamp.adaptor.SupplierProductListAdaptor;
 import com.example.b2bcamp.models.ProductInfoVo;
-import com.example.b2bcamp.models.SupplierProductListAdaptor;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 
 import org.json.JSONObject;
@@ -31,6 +34,8 @@ import java.util.HashMap;
 public class ToolsFragment extends Fragment implements DataInterface {
 
     private ToolsViewModel toolsViewModel;
+
+    FloatingActionButton fabAdd;
 
     RecyclerView recycler_product_list;
     Webservice_Volley volley=null;
@@ -43,6 +48,18 @@ public class ToolsFragment extends Fragment implements DataInterface {
 
         recycler_product_list=(RecyclerView) root.findViewById(R.id.recycler_product_list);
         recycler_product_list.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        fabAdd  = (FloatingActionButton)root.findViewById(R.id.fabAdd);
+
+        fabAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getActivity(), Addproductactivity.class);
+                startActivity(i);
+
+            }
+        });
 
         volley = new Webservice_Volley(getActivity(),this);
 
