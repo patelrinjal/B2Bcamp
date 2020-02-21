@@ -1,4 +1,4 @@
-package com.example.b2bcamp.models;
+package com.example.b2bcamp.adaptor;
 
 import android.view.LayoutInflater;
 import android.view.View;  
@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.b2bcamp.R;
+import com.example.b2bcamp.models.ProductResultVo;
 
 import java.util.List;
 
