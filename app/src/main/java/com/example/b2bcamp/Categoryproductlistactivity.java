@@ -1,6 +1,7 @@
 package com.example.b2bcamp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,7 +24,7 @@ public class Categoryproductlistactivity extends AppCompatActivity implements Da
     RecyclerView recycler_product_list;
     Webservice_Volley volley=null;
 
-    String category_id = "2";
+    String category_id = "0";
 
 
 
@@ -33,8 +34,9 @@ public class Categoryproductlistactivity extends AppCompatActivity implements Da
         setContentView(R.layout.activity_categoryproductlistactivity);
         recycler_product_list = (RecyclerView) findViewById(R.id.recycler_product_list);
 
-        recycler_product_list.setLayoutManager(new LinearLayoutManager(this));
+        recycler_product_list.setLayoutManager(new GridLayoutManager(this,2));
 
+        category_id = getIntent().getStringExtra("category_id");
 
         volley = new Webservice_Volley(this,this);
 
