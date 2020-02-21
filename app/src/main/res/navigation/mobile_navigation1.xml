@@ -2,14 +2,14 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_gallery">
+    android:id="@+id/mobile_navigation1"
+    app:startDestination="@+id/nav_myproduct">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.b2bcamp.ui.home.HomeFragment"
+        android:id="@+id/nav_myproduct"
+        android:name="com.example.b2bcamp.ui.tools.ToolsFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_tools" />
 
     <fragment
         android:id="@+id/nav_gallery"

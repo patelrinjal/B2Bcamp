@@ -81,7 +81,7 @@ public class Sellerlogin extends AppCompatActivity implements DataInterface {
     public void getData(JSONObject jsonObject, String tag) {
         Toast.makeText(this,jsonObject.toString(),Toast.LENGTH_SHORT).show();
 
-        Intent i=new Intent(Sellerlogin.this,Customerhomepage.class);
+        Intent i=new Intent(Sellerlogin.this,Sellerhomepage.class);
         startActivity(i);
     }
 }

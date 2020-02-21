@@ -84,7 +84,5 @@ public class Userlogin extends AppCompatActivity implements DataInterface {
     @Override
     public void getData(JSONObject jsonObject, String tag) {
         Toast.makeText(this,jsonObject.toString(),Toast.LENGTH_SHORT).show();
-
-
     }
 }

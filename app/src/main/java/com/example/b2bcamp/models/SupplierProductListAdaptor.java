@@ -50,8 +50,8 @@ public class SupplierProductListAdaptor extends RecyclerView.Adapter<SupplierPro
 
         public ViewHolder(View itemView) {  
             super(itemView);  
-            this.product_name = (TextView) itemView.findViewById(R.id.nav_product);
-            this.product_price = (TextView) itemView.findViewById(R.id.nav_myproduct);
+            this.product_name = (TextView) itemView.findViewById(R.id.product_name);
+            this.product_price = (TextView) itemView.findViewById(R.id.product_price);
         }
     }  
 }  
