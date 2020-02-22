@@ -91,7 +91,7 @@ public class Addproductactivity extends AppCompatActivity implements DataInterfa
 
                 HashMap<String, String> params = new HashMap<>();
 
-                params.put("category_id", listID.get(spn_1.getSelectedItemPosition()+1));
+                params.put("category_id", listID.get(spn_1.getSelectedItemPosition()));
 
                 params.put("product_name", edt_name.getText().toString());
                 params.put("seller_id","1");

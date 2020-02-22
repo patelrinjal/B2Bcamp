@@ -9,6 +9,10 @@
             android:icon="@drawable/ic_action_myproduct"
             android:title="Myproduct" />
         <item
+            android:id="@+id/nav_mycategory"
+            android:icon="@drawable/ic_action_myproduct"
+            android:title="My Categories" />
+        <item
             android:id="@+id/nav_newinquiries"
             android:icon="@drawable/ic_action_inquiries"
             android:title="New inquiries" />
