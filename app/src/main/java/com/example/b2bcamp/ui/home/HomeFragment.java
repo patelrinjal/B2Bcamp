@@ -69,7 +69,7 @@ public class HomeFragment extends Fragment implements DataInterface {
                 if(categoryinfoVo.getCategoryResultVo()!=null)
                 {
                     if(categoryinfoVo.getCategoryResultVo().size()>0){
-                        CategorylistAdapter adaptor = new CategorylistAdapter(categoryinfoVo.getCategoryResultVo());
+                        CategorylistAdapter adaptor = new CategorylistAdapter(getActivity(),categoryinfoVo.getCategoryResultVo());
                         recycler_category_list.setAdapter(adaptor);
                     }
                 }
