@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddInquiryActivity"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center">
+
+
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="user_name"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:padding="15dp"
+        android:textColor="@android:color/black"/>
+
+
+    <TextView
+        android:id="@+id/product_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:text="product_name"
+        android:textColor="@android:color/black"
+        android:textSize="25dp" />
+
+    <EditText
+        android:id="@+id/inquiry_details"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="25dp"
+        android:text="inquiry_details"
+        android:padding="15dp"
+        android:background="@drawable/edittext_shape_g"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/black"/>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="SIGN IN"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:background="@drawable/button_shape"
+        android:layout_marginTop="24dp"/>
+</LinearLayout>
