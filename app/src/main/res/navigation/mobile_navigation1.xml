@@ -18,16 +18,16 @@
         tools:layout="@layout/fragment_mycategoriesfragment" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.b2bcamp.ui.slideshow.SlideshowFragment"
+        android:id="@+id/nav_newinquiries"
+        android:name="com.example.b2bcamp.ui.myinquiry.MyInquiry"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_my_inquiry" />
 
     <fragment
-        android:id="@+id/nav_tools"
-        android:name="com.example.b2bcamp.ui.tools.ToolsFragment"
+        android:id="@+id/nav_complain"
+        android:name="com.example.b2bcamp.ui.mycomplain.MyComplain"
         android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_tools" />
+        tools:layout="@layout/fragment_my_complain" />
 
     <fragment
         android:id="@+id/nav_share"
