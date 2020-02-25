@@ -44,10 +44,10 @@
         android:textColor="@android:color/black"/>
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_submit"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="SIGN IN"
+        android:text="SUBMIT"
         android:gravity="center"
         android:textColor="@android:color/white"
         android:textSize="18sp"
