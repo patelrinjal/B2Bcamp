@@ -21,20 +21,22 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
-public class AddInquiryActivity extends AppCompatActivity implements DataInterface {
+public class AddComplainActivity extends AppCompatActivity implements DataInterface {
+
     TextView user_name,product_name;
-    EditText inquiry_details;
+    EditText complain_details;
     Button btn_submit;
     Webservice_Volley volley=null;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_inquiry);
+        setContentView(R.layout.activity_add_complain);
         user_name=(TextView)findViewById(R.id.user_name);
         product_name=(TextView)findViewById(R.id.product_name);
-        inquiry_details=(EditText) findViewById(R.id.inquiry_details);
+        complain_details=(EditText) findViewById(R.id.complain_details);
         btn_submit=(Button)findViewById(R.id.btn_submit);
         volley = new Webservice_Volley(this,this);
         btn_submit = (Button) findViewById(R.id.btn_submit);
@@ -42,31 +44,31 @@ public class AddInquiryActivity extends AppCompatActivity implements DataInterfa
             @Override
             public void onClick(View v) {
 
-                if (!Commonfunctions.checkstring(inquiry_details.getText().toString())) {
-                    inquiry_details.setError("Please enter valid inquiry details");
+                if (!Commonfunctions.checkstring(complain_details.getText().toString())) {
+                    complain_details.setError("Please enter complain details");
                     return;
                 }
-                String url = Constants.Webserive_Url + "inquiry.php";
+                String url = Constants.Webserive_Url + "complain.php";
 
                 HashMap<String,String> params = new HashMap<>();
                 params.put("user_id","1");
                 params.put("seller_id","2");
                 params.put("product_id","1");
-                params.put("inquiry_details",inquiry_details.getText().toString());
-                params.put("inquiry_date",new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+                params.put("complain_details",complain_details.getText().toString());
+                params.put("complain_date",new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
 
-                params.put("inquiry_response","");
-                params.put("status","pending");
+                params.put("complain_status","pending");
 
                 volley.CallVolley(url, params, "product");
             }
         });
-    }
+        }
     @Override
     public void getData(JSONObject jsonObject, String tag) {
         Toast.makeText(this,jsonObject.toString(),Toast.LENGTH_SHORT).show();
 
-        Intent i=new Intent(AddInquiryActivity.this,Sellerhomepage.class);
+        Intent i=new Intent(AddComplainActivity.this,Sellerhomepage.class);
         startActivity(i);
     }
-}
+
+        }

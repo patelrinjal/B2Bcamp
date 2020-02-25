@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.b2bcamp.AddCategoryActivity;
 import com.example.b2bcamp.Addproductactivity;
 import com.example.b2bcamp.R;
 import com.example.b2bcamp.Utility.Constants;
@@ -60,7 +61,7 @@ public class Mycategoriesfragment extends Fragment implements DataInterface {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(getActivity(), Addproductactivity.class);
+                Intent i = new Intent(getActivity(), AddCategoryActivity.class);
                 startActivity(i);
 
             }
@@ -76,6 +77,20 @@ public class Mycategoriesfragment extends Fragment implements DataInterface {
 
         return root;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+
+        String url = Constants.Webserive_Url + "getcategorybyseller.php";
+
+        HashMap<String,String> params = new HashMap<>();
+        params.put("seller_id","1");
+
+        volley.CallVolley(url,params,"getcategorybyseller");
+    }
+
     @Override
     public void getData(JSONObject jsonObject, String tag) {
         try {

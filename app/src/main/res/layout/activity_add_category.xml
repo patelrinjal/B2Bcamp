@@ -6,20 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".AddCategoryActivity"
     android:orientation="vertical"
-    android:layout_gravity="center">
+    android:layout_gravity="top"
+    android:gravity="center"
+    android:padding="24dp">
+
+
+    <ImageView
+        android:id="@+id/img1"
+        android:layout_width="331dp"
+        android:layout_height="152dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_marginTop="20dp"/>
 
     <EditText
-        android:id="@+id/category_id"
+        android:id="@+id/category_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="category_id"
-        android:gravity="center"/>
+        android:hint="category_name"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edittext_shape_g"
+        android:gravity="center"
+        android:padding="20dp"/>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_submit"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
+        android:layout_height="60dp"
+        android:text="Submit"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:background="@drawable/button_shape"
+        android:layout_marginTop="24dp"/>
+
+
 </LinearLayout>
