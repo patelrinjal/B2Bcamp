@@ -15,12 +15,15 @@ import android.view.ViewGroup;
 
 import com.example.b2bcamp.Addproductactivity;
 import com.example.b2bcamp.R;
+import com.example.b2bcamp.Utility.AllSharedPrefernces;
 import com.example.b2bcamp.Utility.Constants;
 import com.example.b2bcamp.Utility.DataInterface;
 import com.example.b2bcamp.Utility.Webservice_Volley;
 import com.example.b2bcamp.adaptor.CategorylistAdapter;
+import com.example.b2bcamp.adaptor.InquiryListAdaptor;
 import com.example.b2bcamp.adaptor.SupplierProductListAdaptor;
 import com.example.b2bcamp.models.CategoryinfoVo;
+import com.example.b2bcamp.models.InquiryResponseVo;
 import com.example.b2bcamp.models.ProductInfoVo;
 import com.example.b2bcamp.ui.tools.ToolsViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -42,7 +45,7 @@ public class MyInquiry extends Fragment implements DataInterface {
     RecyclerView recycler_myinquiry_list_list;
     Webservice_Volley volley=null;
 
-
+    AllSharedPrefernces allSharedPrefernces = null;
 
 
     @Override
@@ -52,15 +55,24 @@ public class MyInquiry extends Fragment implements DataInterface {
         View root = inflater.inflate(R.layout.fragment_my_inquiry, container, false);
 
         recycler_myinquiry_list_list=(RecyclerView) root.findViewById(R.id.recycler_my_inquiry_list);
-        recycler_myinquiry_list_list.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        recycler_myinquiry_list_list.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        allSharedPrefernces = new AllSharedPrefernces(getActivity());
 
         volley = new Webservice_Volley(getActivity(),this);
 
-        String url = Constants.Webserive_Url + "getinquiryrybyseller.php";
+        String url = Constants.Webserive_Url + "getinquirybyseller.php";
 
         HashMap<String,String> params = new HashMap<>();
-        params.put("seller_id","1");
+
+        if (allSharedPrefernces.getUserType().equalsIgnoreCase("seller")) {
+            url = Constants.Webserive_Url + "getinquirybyseller.php";
+            params.put("seller_id", allSharedPrefernces.getCustomerNo());
+        }
+        else {
+            url = Constants.Webserive_Url + "getinquirybyuser.php";
+            params.put("user_id", allSharedPrefernces.getCustomerNo());
+        }
 
         volley.CallVolley(url,params,"getinquirybyseller");
 
@@ -68,6 +80,26 @@ public class MyInquiry extends Fragment implements DataInterface {
     }
     @Override
     public void getData(JSONObject jsonObject, String tag) {
+
+        try {
+
+            InquiryResponseVo inquiryResponseVo = new Gson().fromJson(jsonObject.toString(),InquiryResponseVo.class);
+
+            if (inquiryResponseVo != null) {
+
+                if (inquiryResponseVo.getResult().size() > 0) {
+
+                    InquiryListAdaptor inquiryListAdaptor = new InquiryListAdaptor(inquiryResponseVo.getResult());
+                    recycler_myinquiry_list_list.setAdapter(inquiryListAdaptor);
+
+                }
+
+            }
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

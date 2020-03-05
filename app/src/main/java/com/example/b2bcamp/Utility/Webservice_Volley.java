@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -51,6 +52,8 @@ public class Webservice_Volley {
         progressDialog.show();
 
         try {
+
+            Log.d("REQ","==> " + new JSONObject(map).toString());
 
             JsonObjectRequest obreq;
             obreq = new JsonObjectRequest(Request.Method.POST,url,new JSONObject(map),

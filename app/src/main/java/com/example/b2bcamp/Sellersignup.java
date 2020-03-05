@@ -2,6 +2,7 @@ package com.example.b2bcamp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,7 +20,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 
 public class Sellersignup extends AppCompatActivity implements DataInterface {
-    EditText edt_name,edt_contact,edt_email,edt_password,edt_repassword;
+    EditText edt_name,edt_contact,edt_email,edt_password,edt_repassword,edt_address;
     Button btn_signup;
     TextView txt_login;
     Webservice_Volley volley=null;
@@ -34,6 +35,7 @@ public class Sellersignup extends AppCompatActivity implements DataInterface {
         edt_email=(EditText)findViewById(R.id.edt_email);
         edt_password=(EditText)findViewById(R.id.edt_password);
         edt_repassword=(EditText)findViewById(R.id.edt_repassword);
+        edt_address=(EditText)findViewById(R.id.edt_address);
         txt_login=(TextView)findViewById(R.id.txt_login);
 
         volley = new Webservice_Volley(this,this);
@@ -59,6 +61,12 @@ public class Sellersignup extends AppCompatActivity implements DataInterface {
                     return;
                 }
 
+                if (!Commonfunctions.checkstring(edt_address.getText().toString()))
+                {
+                    edt_address.setError("Please enter Address");
+                    return;
+                }
+
                 if (!Commonfunctions.checkPassword(edt_password.getText().toString()))
                 {
                     edt_password.setError("Please enter valid password");
@@ -71,13 +79,14 @@ public class Sellersignup extends AppCompatActivity implements DataInterface {
                     return;
                 }
 
-                String url = Constants.Webserive_Url + "registration.php";
+                String url = Constants.Webserive_Url + "seller_reg.php";
 
                 HashMap<String,String> params = new HashMap<>();
-                params.put("user_name",edt_name.getText().toString());
+                params.put("seller_name",edt_name.getText().toString());
                 params.put("contact_num",edt_contact.getText().toString());
                 params.put("email",edt_email.getText().toString());
                 params.put("password",edt_password.getText().toString());
+                params.put("seller_address",edt_address.getText().toString());
 
 
 
@@ -90,12 +99,32 @@ public class Sellersignup extends AppCompatActivity implements DataInterface {
 
     @Override
     public void getData(JSONObject jsonObject, String tag) {
-        Toast.makeText(this,jsonObject.toString(),Toast.LENGTH_SHORT).show();
+        try {
+
+            Toast.makeText(this, jsonObject.getString("message"), Toast.LENGTH_LONG).show();
+
+            if (jsonObject.getString("response").equalsIgnoreCase("1")) {
+
+                Intent i = new Intent(Sellersignup.this,Sellerlogin.class);
+                startActivity(i);
+
+                finishAffinity();
+
+            }
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
 
 
     }
 
     public void ClickonLogin(View view) {
+
+        Intent i=new Intent(Sellersignup.this,Sellerlogin.class);
+        startActivity(i);
 
         finish();
 

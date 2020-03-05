@@ -42,7 +42,7 @@ public class CategorylistAdapter extends RecyclerView.Adapter<CategorylistAdapte
         final CategoryResultVo dcotorListDataVo = listdata.get(position);
         holder.category_name.setText( dcotorListDataVo.getCategoryName());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        /*holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -51,7 +51,7 @@ public class CategorylistAdapter extends RecyclerView.Adapter<CategorylistAdapte
                 mCOntext.startActivity(i);
 
             }
-        });
+        })*/;
 
     }  
   

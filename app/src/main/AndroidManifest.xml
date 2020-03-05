@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.b2bcamp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AddComplainActivity"></activity>
+        <activity android:name=".EditProfileActivity"></activity>
+        <activity
+            android:name=".StatusActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".CheckoutActivity" />
+        <activity android:name=".CartActivity" />
+        <activity
+            android:name=".ProductDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AddComplainActivity" />
         <activity android:name=".AddInquiryActivity" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".AddCategoryActivity" />
@@ -33,15 +44,15 @@
             android:name=".Sellerlogin"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".Sellersignup"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".Customerhomepage"
             android:label="@string/title_activity_customerhomepage"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Sellerhomepage"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Customerhomepageactivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Addproductactivity"
@@ -64,6 +75,18 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.mvc.imagepicker.provider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"
+                tools:replace="android:resource" />
+        </provider>
     </application>
 
 </manifest>

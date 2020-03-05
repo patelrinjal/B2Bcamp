@@ -13,6 +13,10 @@
             android:icon="@drawable/ic_action_myproduct"
             android:title="My Categories" />
         <item
+            android:id="@+id/nav_myorders"
+            android:icon="@drawable/checklist"
+            android:title="My Orders" />
+        <item
             android:id="@+id/nav_newinquiries"
             android:icon="@drawable/ic_action_inquiries"
             android:title="New inquiries" />
@@ -27,11 +31,13 @@
         <item
             android:id="@+id/nav_notification"
             android:icon="@drawable/ic_action_notification"
-            android:title="Notification" />
+            android:title="Notification"
+            android:visible="false"/>
         <item
-            android:id="@+id/nav_logout"
-            android:icon="@drawable/ic_action_logout"
-            android:title="Logout" />
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_action_user"
+            android:title="My Profile"
+            android:visible="true"/>
     </group>
 
 

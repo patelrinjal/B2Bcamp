@@ -1,12 +1,16 @@
 package com.example.b2bcamp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.b2bcamp.Utility.AllSharedPrefernces;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -20,15 +24,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.TextView;
+
+import org.json.JSONObject;
 
 public class Customerhomepage extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
+    AllSharedPrefernces allSharedPrefernces = null;
+
+    NavigationView navigationView = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customerhomepage);
+
+        allSharedPrefernces = new AllSharedPrefernces(this);
+
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -40,17 +55,40 @@ public class Customerhomepage extends AppCompatActivity {
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send)
+                R.id.nav_product, R.id.nav_myorders, R.id.nav_inquiries,
+                R.id.nav_complains, R.id.nav_profile, R.id.nav_send)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        loadData();
+    }
+
+    public void loadData() {
+
+        try {
+
+            View vh = navigationView.getHeaderView(0);
+
+            TextView txt_name = (TextView) vh.findViewById(R.id.txt_name);
+            TextView txt_mobile = (TextView) vh.findViewById(R.id.txt_mobile);
+
+            JSONObject jsonObject = new JSONObject(allSharedPrefernces.getCustomerData());
+
+            txt_name.setText(jsonObject.getString("seller_name"));
+            txt_mobile.setText(jsonObject.getString("seller_contactno"));
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
@@ -58,6 +96,39 @@ public class Customerhomepage extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.customerhomepage, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == R.id.action_logout) {
+
+            allSharedPrefernces.ClearAllData();
+
+            Intent i = new Intent(Customerhomepage.this,splash.class);
+            startActivity(i);
+
+            finishAffinity();
+
+            return true;
+        }
+        else if (item.getItemId() == R.id.action_search) {
+
+            Intent i = new Intent(Customerhomepage.this,SearchActivity.class);
+            startActivity(i);
+
+            return true;
+        }
+        else if (item.getItemId() == R.id.action_cart) {
+
+            Intent i = new Intent(Customerhomepage.this,CartActivity.class);
+            startActivity(i);
+
+            return true;
+        }
+
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

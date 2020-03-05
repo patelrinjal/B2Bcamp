@@ -2,6 +2,7 @@ package com.example.b2bcamp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -115,12 +116,30 @@ public class Usersignup extends AppCompatActivity implements DataInterface {
 
     @Override
     public void getData(JSONObject jsonObject, String tag) {
-        Toast.makeText(this,jsonObject.toString(),Toast.LENGTH_SHORT).show();
+        try {
 
+            Toast.makeText(this, jsonObject.getString("message"), Toast.LENGTH_LONG).show();
+
+            if (jsonObject.getString("response").equalsIgnoreCase("1")) {
+
+                Intent i = new Intent(Usersignup.this,Customerhomepage.class);
+                startActivity(i);
+
+                finishAffinity();
+
+            }
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 
     public void ClickonLogin(View view) {
+
+        Intent i=new Intent(Usersignup.this,Userlogin.class);
+        startActivity(i);
 
         finish();
 

@@ -8,32 +8,38 @@
     <fragment
         android:id="@+id/nav_myproduct"
         android:name="com.example.b2bcamp.ui.tools.ToolsFragment"
-        android:label="@string/menu_home"
+        android:label="My Products"
         tools:layout="@layout/fragment_tools" />
 
     <fragment
         android:id="@+id/nav_mycategory"
         android:name="com.example.b2bcamp.ui.mycategory.Mycategoriesfragment"
-        android:label="@string/menu_gallery"
+        android:label="My Category"
         tools:layout="@layout/fragment_mycategoriesfragment" />
+
+    <fragment
+        android:id="@+id/nav_myorders"
+        android:name="com.example.b2bcamp.ui.myorders_customer.MyCustomerOrderFragment"
+        android:label="My Orders"
+        tools:layout="@layout/fragment_my_customer_order" />
 
     <fragment
         android:id="@+id/nav_newinquiries"
         android:name="com.example.b2bcamp.ui.myinquiry.MyInquiry"
-        android:label="@string/menu_slideshow"
+        android:label="New Inquiries"
         tools:layout="@layout/fragment_my_inquiry" />
 
     <fragment
         android:id="@+id/nav_complain"
         android:name="com.example.b2bcamp.ui.mycomplain.MyComplain"
-        android:label="@string/menu_tools"
+        android:label="My Complain"
         tools:layout="@layout/fragment_my_complain" />
 
     <fragment
-        android:id="@+id/nav_share"
-        android:name="com.example.b2bcamp.ui.share.ShareFragment"
-        android:label="@string/menu_share"
-        tools:layout="@layout/fragment_share" />
+        android:id="@+id/nav_profile"
+        android:name="com.example.b2bcamp.ui.profile.MyProfileFragment"
+        android:label="My Profile"
+        tools:layout="@layout/fragment_my_profile" />
 
     <fragment
         android:id="@+id/nav_send"

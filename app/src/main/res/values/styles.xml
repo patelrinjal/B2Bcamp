@@ -8,9 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
-        <item name="colorPrimary">#7F0837</item>
-        <item name="colorPrimaryDark">#7F0837</item>
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">#7F0837</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

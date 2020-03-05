@@ -22,7 +22,7 @@
         android:background="#000000"
         app:itemTextColor="@android:color/white"
         app:itemIconTint="@android:color/white"
-        app:headerLayout="@layout/nav_header_sellerhomepage"
+        app:headerLayout="@layout/nav_header_customerhomepage"
         app:menu="@menu/activity_sellerhomepage_drawer" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

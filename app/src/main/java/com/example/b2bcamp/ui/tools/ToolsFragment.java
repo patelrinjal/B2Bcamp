@@ -14,11 +14,13 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.b2bcamp.Addproductactivity;
 import com.example.b2bcamp.R;
+import com.example.b2bcamp.Utility.AllSharedPrefernces;
 import com.example.b2bcamp.Utility.Constants;
 import com.example.b2bcamp.Utility.DataInterface;
 import com.example.b2bcamp.Utility.Webservice_Volley;
@@ -40,11 +42,14 @@ public class ToolsFragment extends Fragment implements DataInterface {
     RecyclerView recycler_product_list;
     Webservice_Volley volley=null;
 
+    AllSharedPrefernces allSharedPrefernces = null;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_tools, container, false);
+
+        allSharedPrefernces = new AllSharedPrefernces(getActivity());
 
         recycler_product_list=(RecyclerView) root.findViewById(R.id.recycler_product_list);
         recycler_product_list.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -63,14 +68,21 @@ public class ToolsFragment extends Fragment implements DataInterface {
 
         volley = new Webservice_Volley(getActivity(),this);
 
+
+
+        return root;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
         String url = Constants.Webserive_Url + "getproductbyseller.php";
 
         HashMap<String,String> params = new HashMap<>();
-        params.put("seller_id","1");
+        params.put("seller_id",allSharedPrefernces.getCustomerNo());
 
         volley.CallVolley(url,params,"getproductbyseller");
-
-        return root;
     }
 
     @Override

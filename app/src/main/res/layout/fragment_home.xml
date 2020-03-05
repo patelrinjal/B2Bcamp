@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-<LinearLayout
-    tools:context=".Customerhomepageactivity"
     android:orientation="vertical"
-    android:background="@android:color/white"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-
-
-    <ImageView
-        android:id="@+id/img_1"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:src="@drawable/offer"
-        android:scaleType="centerCrop"/>
+        android:layout_height="?actionBarSize"
+        android:background="@android:color/white"
+        android:elevation="6dp"
+        app:tabSelectedTextColor="@color/colorPrimaryDark"
+        app:tabIndicatorColor="@color/colorPrimaryDark"
+        app:tabIndicatorHeight="2dp"
+        app:tabMode="scrollable"
+        app:tabGravity="center"
+        app:tabTextAppearance="?android:textAppearanceSmall"
+        app:tabTextColor="@android:color/darker_gray"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 
     <EditText
         android:id="@+id/edt_search"
@@ -37,11 +42,12 @@
         android:layout_marginRight="24dp"
         android:paddingLeft="16dp"
         android:textSize="16sp"
-        android:imeOptions="actionSearch"/>
+        android:imeOptions="actionSearch"
+        android:visibility="gone"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recycler_category_list"/>
+        android:id="@+id/recycler_category_list"
+        android:visibility="gone"/>
 </LinearLayout>
-</ScrollView>

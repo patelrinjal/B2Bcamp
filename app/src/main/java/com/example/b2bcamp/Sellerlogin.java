@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.b2bcamp.Utility.AllSharedPrefernces;
 import com.example.b2bcamp.Utility.Commonfunctions;
 import com.example.b2bcamp.Utility.Constants;
 import com.example.b2bcamp.Utility.DataInterface;
@@ -25,6 +26,8 @@ public class Sellerlogin extends AppCompatActivity implements DataInterface {
     TextView txt_forgot_password,txt_signup;
     Webservice_Volley volley=null;
 
+    AllSharedPrefernces allSharedPrefernces = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +37,8 @@ public class Sellerlogin extends AppCompatActivity implements DataInterface {
         btn_login=(Button)findViewById(R.id.btn_login);
         txt_forgot_password=(TextView)findViewById(R.id.txt_forgot_password);
         txt_signup=(TextView)findViewById(R.id.txt_signup);
+
+        allSharedPrefernces = new AllSharedPrefernces(this);
 
         volley = new Webservice_Volley(this,this);
 
@@ -79,10 +84,31 @@ public class Sellerlogin extends AppCompatActivity implements DataInterface {
     }
     @Override
     public void getData(JSONObject jsonObject, String tag) {
-        Toast.makeText(this,jsonObject.toString(),Toast.LENGTH_SHORT).show();
 
-        Intent i=new Intent(Sellerlogin.this,Sellerhomepage.class);
-        startActivity(i);
+        try {
+
+            Toast.makeText(this, jsonObject.getString("message"), Toast.LENGTH_LONG).show();
+
+            if (jsonObject.getString("response").equalsIgnoreCase("1")) {
+
+                allSharedPrefernces.setUserLogin(true);
+                allSharedPrefernces.setUserType("seller");
+
+                allSharedPrefernces.setCustomerNo(jsonObject.getString("id"));
+                allSharedPrefernces.setCustomerData(jsonObject.getJSONObject("data").toString());
+
+                Intent i = new Intent(Sellerlogin.this,Sellerhomepage.class);
+                startActivity(i);
+
+                finishAffinity();
+
+            }
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 }
 
