@@ -42,8 +42,15 @@
         tools:layout="@layout/fragment_my_profile" />
 
     <fragment
-        android:id="@+id/nav_send"
-        android:name="com.example.b2bcamp.ui.send.SendFragment"
-        android:label="@string/menu_send"
-        tools:layout="@layout/fragment_send" />
+        android:id="@+id/nav_notification"
+        android:name="com.example.b2bcamp.ui.notification.NotificationFragment"
+        android:label="Notifications"
+        tools:layout="@layout/fragment_notification" />
+
+    <fragment
+        android:id="@+id/nav_chats"
+        android:name="com.example.b2bcamp.ui.sellerchatlist.SellerChatListFragment"
+        android:label="Chats"
+        tools:layout="@layout/fragment_seller_chat_list" />
+
 </navigation>

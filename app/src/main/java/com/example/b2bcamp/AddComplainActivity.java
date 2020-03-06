@@ -83,6 +83,7 @@ public class AddComplainActivity extends AppCompatActivity implements DataInterf
                 params.put("user_id", productResultVo.getSellerId());
                 params.put("seller_id", allSharedPrefernces.getCustomerNo());
                 params.put("product_id", productResultVo.getProductId());
+                params.put("productname", productResultVo.getProductName());
                 params.put("complain_details", complain_details.getText().toString());
                 params.put("complain_date", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
 

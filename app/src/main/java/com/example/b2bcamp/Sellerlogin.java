@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +16,9 @@ import com.example.b2bcamp.Utility.Commonfunctions;
 import com.example.b2bcamp.Utility.Constants;
 import com.example.b2bcamp.Utility.DataInterface;
 import com.example.b2bcamp.Utility.Webservice_Volley;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import org.json.JSONObject;
 
@@ -27,6 +31,8 @@ public class Sellerlogin extends AppCompatActivity implements DataInterface {
     Webservice_Volley volley=null;
 
     AllSharedPrefernces allSharedPrefernces = null;
+
+    String mToken = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +47,14 @@ public class Sellerlogin extends AppCompatActivity implements DataInterface {
         allSharedPrefernces = new AllSharedPrefernces(this);
 
         volley = new Webservice_Volley(this,this);
+
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener( Sellerlogin.this,  new OnSuccessListener<InstanceIdResult>() {
+            @Override
+            public void onSuccess(InstanceIdResult instanceIdResult) {
+                mToken = instanceIdResult.getToken();
+                Log.e("MY_TOKEN","==>" + mToken);
+            }
+        });
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +75,7 @@ public class Sellerlogin extends AppCompatActivity implements DataInterface {
                 HashMap<String,String> params = new HashMap<>();
                 params.put("contact_num",edt_contact.getText().toString());
                 params.put("password",edt_password.getText().toString());
+                params.put("device_token",mToken);
 
                 volley.CallVolley(url,params,"seller_login");
 
@@ -97,7 +112,13 @@ public class Sellerlogin extends AppCompatActivity implements DataInterface {
                 allSharedPrefernces.setCustomerNo(jsonObject.getString("id"));
                 allSharedPrefernces.setCustomerData(jsonObject.getJSONObject("data").toString());
 
-                Intent i = new Intent(Sellerlogin.this,Sellerhomepage.class);
+                JSONObject jobj = jsonObject.getJSONObject("data");
+
+                if (jobj != null) {
+                    allSharedPrefernces.setCustomerName(jobj.getString("seller_name"));
+                }
+
+                Intent i = new Intent(Sellerlogin.this,Customerhomepage.class);
                 startActivity(i);
 
                 finishAffinity();

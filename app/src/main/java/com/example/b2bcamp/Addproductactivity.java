@@ -122,7 +122,7 @@ public class Addproductactivity extends AppCompatActivity implements DataInterfa
                 params.put("product_price", edt_price.getText().toString());
                 params.put("product_description", edt_description.getText().toString());
 
-                volley.CallVolley(url, params, "product");
+                volley.CallVolley_location(url, params, "product");
             }
         });
     }

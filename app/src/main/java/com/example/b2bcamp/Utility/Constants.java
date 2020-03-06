@@ -6,10 +6,10 @@ package com.example.b2bcamp.Utility;
 public class Constants {
 
 
-   public static final String Webserive_Url="http://192.168.0.5/b2b/API/";
+   public static final String Webserive_Url="http://192.168.0.3/b2b/API/";
 
 
-   public static final String IMAGE_Url="http://192.168.0.5/b2b/product_images/";
+   public static final String IMAGE_Url="http://192.168.0.3/b2b/product_images/";
    //public static final String Webserive_Url="http://nutritiondiet.kstechnologies.co/api/";
 
    public static final String RUPEE_SIGN="\u20B9";

@@ -79,6 +79,7 @@ public class AddInquiryActivity extends AppCompatActivity implements DataInterfa
                 params.put("user_id", productResultVo.getSellerId());
                 params.put("seller_id",allSharedPrefernces.getCustomerNo() );
                 params.put("product_id", productResultVo.getProductId());
+                params.put("productname", productResultVo.getProductName());
                 params.put("inquiry_details",inquiry_details.getText().toString());
                 params.put("inquiry_date",new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
 

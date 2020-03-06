@@ -59,7 +59,7 @@ public class Sellerhomepage extends AppCompatActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_myproduct, R.id.nav_mycategory, R.id.nav_myorders, R.id.nav_newinquiries,
-                R.id.nav_complain, R.id.nav_profile, R.id.nav_send)
+                R.id.nav_complain, R.id.nav_profile, R.id.nav_notification,R.id.nav_chats)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
